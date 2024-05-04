@@ -1,0 +1,11 @@
+services:
+  - name: my-react-flask-app
+    env: python
+    buildCommand: |
+      cd React-Flask/client
+      npm install
+      npm run build
+      cd ..
+      pip install -r requirements.txt
+    startCommand: gunicorn server:app
+    
